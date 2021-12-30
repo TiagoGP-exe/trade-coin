@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
-import logo from '../assets/logo.svg'
 import { RiGithubLine } from 'react-icons/ri'
 
 const Footer: FC = () => (
@@ -15,14 +14,12 @@ const Footer: FC = () => (
           />
         </a>
       </Link>
-      <div className='w-40 '>
+      <div>
         <Link href='/'>
           <a>
-            <Image
-              src={logo}
-              layout='responsive'
-              alt='Logo'
-              className='cursor-pointer opacity-90  hover:opacity-100 duration-150 ease-in-out'
+            <img
+              src='/logo.svg'
+              className=' cursor-pointer opacity-90  hover:opacity-100 duration-150 ease-in-out w-40'
             />
           </a>
         </Link>

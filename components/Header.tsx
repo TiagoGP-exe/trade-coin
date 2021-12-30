@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useState } from 'react'
-import logo from '../../assets/logo.svg'
 import CurrencyItem from './CurrencyItem'
 import ItemsHeaders from './ItemsHeaders'
 import Search from './Search'
@@ -12,13 +10,8 @@ const Header: FC = () => {
     <div className='bg-white p-3 rounded-b-xl flex w-full justify-center'>
       <div className='w-full flex max-w-screen-xl gap-y-2 flex-col sm:flex-row items-center justify-between'>
         <Link href='/'>
-          <a className='w-32'>
-            <Image
-              src={logo}
-              layout='responsive'
-              alt='Logo'
-              className='cursor-pointer opacity-90  hover:opacity-100 duration-150 ease-in-out'
-            />
+          <a>
+            <img src='/logo.svg' className='flex-shrink-0 w-32' />
           </a>
         </Link>
         <div className='middleContent gap-7'>
