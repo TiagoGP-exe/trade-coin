@@ -17,7 +17,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 13,
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "plugins": [
@@ -27,6 +27,6 @@
   ],
   "rules": {
     "prettier/prettier" : "error",
-    "space-before-function-paren" : "off",
+    "space-before-function-paren" : "off"
   }
 }
