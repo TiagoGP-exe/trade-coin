@@ -27,7 +27,7 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
 
           <input
             type='number'
-            className='flex p-2 rounded-r-xl bg-slate-100 flex-1'
+            className='flex p-2 rounded-r-xl bg-slate-100 flex-1 max-w-full'
             placeholder='0'
             value={swap ? secondValue : firstValue}
             onChange={e =>
@@ -62,7 +62,7 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
             type='text'
             disabled
             placeholder='0'
-            className='flex p-2 rounded-r-xl bg-slate-100 flex-1'
+            className='flex p-2 rounded-r-xl bg-slate-100 flex-1 max-w-full'
             value={swap ? firstValue : secondValue}
             onChange={e =>
               swap
