@@ -1,5 +1,5 @@
 <div align="center">
-  <a src="https://trade-coin.vercel.app/">
+  <a href="https://trade-coin.vercel.app/">
   <img height="30px" src="https://cdn.discordapp.com/attachments/494671180377227264/926223568650506291/Group_3.png"/>
   </a>
 </div>
