@@ -26,10 +26,10 @@ const CurrencyItem = () => {
       >
         <span className='flex items-center '>
           <img
-            src={`/${atualCurrency}.png`}
+            src={`/${atualCurrency.toUpperCase()}.png`}
             className='flex-shrink-0 h-6 w-6'
           />
-          <span className='ml-2 pr-2'>{atualCurrency?.toUpperCase()}</span>
+          <span className='ml-2 pr-2'>{atualCurrency.toUpperCase()}</span>
         </span>
         <span className=' absolute inset-y-0 right-0 flex flex-col items-center pr-3 pointer-events-none text-gray-400 justify-center'>
           <FaChevronUp size={10} />
