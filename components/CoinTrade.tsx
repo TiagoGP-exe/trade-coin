@@ -16,7 +16,10 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
   return (
     <div className='flex w-full bg-white p-4 rounded-xl mb-2'>
       <div className='flex flex-col py-2 md:py-0 sm:flex-row gap-y-5 justify-evenly w-full items-center '>
-        <div className='flex text-slate-700 font-semibold items-center justify-between'>
+        <div
+          style={{ maxWidth: '80%' }}
+          className='flex text-slate-700 font-semibold items-center justify-between'
+        >
           <div className='bg-slate-200 flex items-center gap-1 justify-center w-full py-2 px-3 rounded-l-xl'>
             <p>
               {swap
@@ -49,7 +52,10 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
           onClick={() => setSwap(!swap)}
         />
 
-        <div className='flex text-slate-700 font-semibold items-center max-w-xs justify-between'>
+        <div
+          style={{ maxWidth: '80%' }}
+          className='flex text-slate-700 font-semibold items-center justify-between'
+        >
           <div className='bg-slate-200 flex items-center gap-1 justify-center w-full py-2 px-3 rounded-l-xl'>
             <p>
               {!swap
