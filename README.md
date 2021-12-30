@@ -1,6 +1,6 @@
 <div align="center">
   <a href="">
-  <img height="30px" src="https://cdn.discordapp.com/attachments/494671180377227264/926196447941124176/Group_3.png"/>
+  <img height="30px" src="https://cdn.discordapp.com/attachments/494671180377227264/926223568650506291/Group_3.png"/>
   </a>
 </div>
 <br>
