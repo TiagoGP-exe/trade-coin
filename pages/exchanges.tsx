@@ -17,7 +17,7 @@ const exchange = () => {
   return (
     <div>
       <Header />
-      <div className="flex flex-col justify-center items-center gap-12 mt-12">
+      <div className='flex flex-col justify-center items-center gap-12 mt-12'>
         <ListOfExchanges exchanges={exchangesValues} />
         {exchangesValues.length > 0 && <Footer />}
       </div>

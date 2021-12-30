@@ -20,27 +20,27 @@ const ItemOfList: FC<ItemOfListProps> = ({ coin, id }) => {
             id > 0 && 'mt-2'
           }`}
         >
-          <div className="flex flex-row gap-3 flex-1 items-center justify-start ">
-            <p className="text-sm text-gray-400">{++id}</p>
+          <div className='flex flex-row gap-3 flex-1 items-center justify-start '>
+            <p className='text-sm text-gray-400'>{++id}</p>
             <img
               src={coin.image}
               alt={coin.name}
               className={`h-6 w-6 hover:scale-125 duration-200 ease-in-out rounded-lg`}
             />
-            <h2 className="font-bold ">{coin.name}</h2>
-            <p className="font-semibold text-gray-400">
+            <h2 className='font-bold '>{coin.name}</h2>
+            <p className='font-semibold text-gray-400'>
               {coin.symbol.toUpperCase()}
             </p>
           </div>
-          <p className="flex flex-1 font-semibold justify-end">
+          <p className='flex flex-1 font-semibold justify-end'>
             {coin.current_price > 1
               ? formatNumber(coin.current_price, atualCurrency)
               : manualFormarNumber(atualCurrency, coin.current_price)}
           </p>
-          <div className="hidden sm:flex">
+          <div className='hidden sm:flex'>
             <Percentage value={coin.price_change_percentage_24h} />
           </div>
-          <p className="hidden  md:flex flex-1 justify-center font-semibold">
+          <p className='hidden  md:flex flex-1 justify-center font-semibold'>
             {formatNumber(coin.market_cap, atualCurrency)}
           </p>
           <p className={`hidden  md:flex flex-1 justify-center font-semibold`}>

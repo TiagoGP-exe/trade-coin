@@ -16,7 +16,7 @@ const pathOfRoute = ['Cryptocurrencies', 'Coins']
 
 const CoinDetails = () => {
   const {
-    query: { name }
+    query: { name },
   } = useRouter()
   const [coinValues, setCoinValues] = useState<IMarket>()
   const { atualCurrency } = useCurrency()
@@ -31,15 +31,15 @@ const CoinDetails = () => {
   return (
     <>
       <Header />
-      <div className="flex w-full justify-center items-center">
-        <div className="max-w-screen-xl p-3 w-full ">
+      <div className='flex w-full justify-center items-center'>
+        <div className='max-w-screen-xl p-3 w-full'>
           <Paths path={pathOfRoute} finalPath={coinValues?.name} />
 
           {coinValues && (
             <>
               <CoinInfos infos={coinValues} />
-              <div className="flex flex-col-reverse lg:flex-row gap-2 w-full">
-                <div className="flex flex-col w-full">
+              <div className='flex flex-col-reverse lg:flex-row gap-2 w-full'>
+                <div className='flex flex-col w-full'>
                   <CoinTrade infos={coinValues} />
                   <Chart
                     idCrypto={coinValues.id}
@@ -49,7 +49,7 @@ const CoinDetails = () => {
                 </div>
                 <CoinInfosDetails infos={coinValues} />
               </div>
-              <div className="flex flex-col justify-center items-center mt-12 w-full ">
+              <div className='flex flex-col justify-center items-center mt-12 w-full '>
                 <Footer />
               </div>
             </>

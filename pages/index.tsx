@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { FC, useEffect, useState } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -21,7 +20,7 @@ const Home: FC = () => {
   return (
     <div>
       <Header />
-      <div className="relative flex flex-col justify-center items-center gap-12 mt-12">
+      <div className='relative flex flex-col justify-center items-center gap-12 mt-12'>
         <ListOfCoins coins={coinValues} />
         {coinValues.length > 0 && <Footer />}
       </div>

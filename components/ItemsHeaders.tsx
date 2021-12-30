@@ -7,10 +7,10 @@ interface ItemsHeaders {
 }
 
 const ItemsHeaders: FC<ItemsHeaders> = ({ title, goToPage = '/' }) => (
-  <div className="justify-center items-center">
+  <div className='justify-center items-center'>
     <Link href={goToPage}>
       <a>
-        <p className="font-semibold cursor-pointer hover:text-cyan-500 duration-150 hover:tracking-wider ease-in-out">
+        <p className='font-semibold cursor-pointer hover:text-cyan-500 duration-150 hover:tracking-wider ease-in-out'>
           {title}
         </p>
       </a>

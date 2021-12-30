@@ -13,8 +13,8 @@ export const getCoin = async ({ id, currency }: ICoin) => {
       order: 'market_cap_desc',
       per_page: 100,
       page: 1,
-      sparkline: false
-    }
+      sparkline: false,
+    },
   })
 
   return data

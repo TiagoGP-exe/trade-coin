@@ -1,9 +1,8 @@
-export const formatNumber = (value: number, currencySelected: string) => {
-  return new Intl.NumberFormat(verifyLocale(currencySelected.toUpperCase()), {
+export const formatNumber = (value: number, currencySelected: string) =>
+  new Intl.NumberFormat(verifyLocale(currencySelected.toUpperCase()), {
     style: 'currency',
-    currency: currencySelected.toUpperCase()
+    currency: currencySelected.toUpperCase(),
   }).format(value)
-}
 
 const verifyLocale = (value: string) => {
   switch (value) {
@@ -13,6 +12,8 @@ const verifyLocale = (value: string) => {
       return 'de-DE'
     case 'BRL':
       return 'pt-BR'
+    default:
+      return 'en-US'
   }
 }
 
@@ -24,5 +25,7 @@ export const manualFormarNumber = (currency: string, value: number) => {
       return `${value}€`
     case 'BRL':
       return `R$${value}`
+    default:
+      return `$${value}`
   }
 }

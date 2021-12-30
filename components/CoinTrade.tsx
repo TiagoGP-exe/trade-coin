@@ -14,10 +14,10 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
   }, [infos])
 
   return (
-    <div className="flex w-full bg-white p-4 rounded-xl mb-2">
-      <div className="flex flex-col py-2 md:py-0 sm:flex-row gap-y-5 justify-evenly w-full items-center ">
-        <div className="flex text-slate-700 font-semibold items-center max-w-xs justify-between ">
-          <div className="bg-slate-200 flex items-center gap-1 justify-center w-full py-2 px-3 rounded-l-xl">
+    <div className='flex w-full bg-white p-4 rounded-xl mb-2'>
+      <div className='flex flex-col py-2 md:py-0 sm:flex-row gap-y-5 justify-evenly w-full items-center '>
+        <div className='flex text-slate-700 font-semibold items-center max-w-xs justify-between '>
+          <div className='bg-slate-200 flex items-center gap-1 justify-center w-full py-2 px-3 rounded-l-xl'>
             <p>
               {swap
                 ? atualCurrency.toUpperCase()
@@ -26,9 +26,9 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
           </div>
 
           <input
-            type="number"
-            className="flex p-2 rounded-r-xl bg-slate-100 flex-1"
-            placeholder="0"
+            type='number'
+            className='flex p-2 rounded-r-xl bg-slate-100 flex-1'
+            placeholder='0'
             value={swap ? secondValue : firstValue}
             onChange={e =>
               swap
@@ -45,12 +45,12 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
         </div>
 
         <AiOutlineSwap
-          className="text-lg font-bold text-slate-600 hover:text-slate-900 duration-300 hover:-scale-x-110 hover:scale-150 ease-in-out cursor-pointer"
+          className='text-lg font-bold text-slate-600 hover:text-slate-900 duration-300 hover:-scale-x-110 hover:scale-150 ease-in-out cursor-pointer'
           onClick={() => setSwap(!swap)}
         />
 
-        <div className="flex text-slate-700 font-semibold items-center max-w-xs justify-between ">
-          <div className="bg-slate-200 flex items-center gap-1 justify-center w-full py-2 px-3 rounded-l-xl">
+        <div className='flex text-slate-700 font-semibold items-center max-w-xs justify-between '>
+          <div className='bg-slate-200 flex items-center gap-1 justify-center w-full py-2 px-3 rounded-l-xl'>
             <p>
               {!swap
                 ? atualCurrency.toUpperCase()
@@ -59,10 +59,10 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
           </div>
 
           <input
-            type="text"
+            type='text'
             disabled
-            placeholder="0"
-            className="flex p-2 rounded-r-xl bg-slate-100 flex-1"
+            placeholder='0'
+            className='flex p-2 rounded-r-xl bg-slate-100 flex-1'
             value={swap ? firstValue : secondValue}
             onChange={e =>
               swap

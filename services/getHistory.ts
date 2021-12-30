@@ -10,8 +10,8 @@ export const getHistory = async ({ id, currency, days }: IHistory) => {
   const { data } = await api.get(`/coins/${id}/market_chart`, {
     params: {
       vs_currency: currency,
-      days: days
-    }
+      days: days,
+    },
   })
 
   return data

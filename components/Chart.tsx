@@ -1,8 +1,7 @@
 import { FC, useEffect, useState } from 'react'
-import { getHistory } from '../services/getHistory'
 import Charts from 'react-apexcharts'
-import { formatNumber } from '../utils/currency'
 import { useCurrency } from '../context/Currency'
+import { getHistory } from '../services/getHistory'
 
 interface ChartProps {
   idCrypto: string
@@ -26,7 +25,7 @@ const Calendar: ButtonsProps[] = [
   { label: '7D', value: '7' },
   { label: '1M', value: '30' },
   { label: '1Y', value: '360' },
-  { label: 'ALL', value: 'max' }
+  { label: 'ALL', value: 'max' },
 ]
 
 const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
@@ -39,7 +38,7 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
       const payload = await getHistory({
         id: idCrypto,
         currency: atualCurrency,
-        days: days.value
+        days: days.value,
       })
 
       setDate(payload)
@@ -49,12 +48,12 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
   return (
     <>
       {date && (
-        <div className="bg-white p-2 rounded-xl duration-200">
-          <div className="flex gap-1 flex-col sm:flex-row w-full sm:justify-between sm:items-center px-2 my-4">
-            <h1 className="font-bold text-xl text-slate-700">
+        <div className='bg-white p-2 rounded-xl duration-200'>
+          <div className='flex gap-1 flex-col sm:flex-row w-full sm:justify-between sm:items-center px-2 my-4'>
+            <h1 className='font-bold text-xl text-slate-700'>
               {name} to {currency} Chart
             </h1>
-            <div className="flex flex-row bg-slate-100 py-0.5 rounded-xl ">
+            <div className='flex flex-row bg-slate-100 py-0.5 rounded-xl '>
               {Calendar.map(({ label, value }) => (
                 <button
                   key={value}
@@ -69,14 +68,14 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
             </div>
           </div>
           <Charts
-            type="area"
+            type='area'
             height={350}
-            width="100%"
+            width='100%'
             series={[{ name: idCrypto, data: date.prices }]}
             options={{
               stroke: { curve: 'smooth', width: 2 },
               dataLabels: {
-                enabled: false
+                enabled: false,
               },
               fill: {
                 type: 'gradient',
@@ -84,36 +83,38 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
                   shadeIntensity: 1,
                   opacityFrom: 0.7,
                   opacityTo: 0.9,
-                  stops: [0, 90, 100]
-                }
+                  stops: [0, 90, 100],
+                },
               },
               chart: {
                 toolbar: {
-                  show: false
-                }
+                  show: false,
+                },
               },
               grid: {
-                borderColor: '#e9e9e9cc'
+                borderColor: '#e9e9e9cc',
               },
 
               tooltip: {
                 followCursor: true,
                 x: {
-                  format: 'dd/MM/yy HH:mm'
+                  format: 'dd/MM/yy HH:mm',
                 },
                 y: {
-                  formatter: e => new Intl.NumberFormat(atualCurrency).format(e)
-                }
+                  formatter: e =>
+                    new Intl.NumberFormat(atualCurrency).format(e),
+                },
               },
               xaxis: {
-                type: 'datetime'
+                type: 'datetime',
               },
               yaxis: {
                 labels: {
                   style: { fontWeight: 'bold' },
-                  formatter: e => new Intl.NumberFormat(atualCurrency).format(e)
-                }
-              }
+                  formatter: e =>
+                    new Intl.NumberFormat(atualCurrency).format(e),
+                },
+              },
             }}
           />
         </div>

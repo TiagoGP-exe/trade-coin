@@ -20,18 +20,16 @@ interface ListOfExchangesProps {
   exchanges: IExchanges[]
 }
 
-const ListOfExchanges: FC<ListOfExchangesProps> = ({ exchanges }) => {
-  return (
-    <>
-      {exchanges && (
-        <div className="bg-white rounded-2xl max-w-screen-xl w-full xl:w-9/12">
-          {exchanges.map((item, index) => (
-            <ItemsOfExChanges key={index} exchange={item} id={index} />
-          ))}
-        </div>
-      )}
-    </>
-  )
-}
+const ListOfExchanges: FC<ListOfExchangesProps> = ({ exchanges }) => (
+  <>
+    {exchanges && (
+      <div className='bg-white rounded-2xl max-w-screen-xl w-full xl:w-9/12'>
+        {exchanges.map((item, index) => (
+          <ItemsOfExChanges key={index} exchange={item} id={index} />
+        ))}
+      </div>
+    )}
+  </>
+)
 
 export default ListOfExchanges
