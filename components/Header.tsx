@@ -2,9 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useState } from 'react'
 import logo from '../../assets/logo.svg'
-import CurrencyItem from '../CurrencyItem'
-import ItemsHeaders from '../ItemsHeaders'
-import Search from '../Search'
+import CurrencyItem from './CurrencyItem'
+import ItemsHeaders from './ItemsHeaders'
+import Search from './Search'
 
 const Header: FC = () => {
   const [searchValue, setSearchValue] = useState('')
