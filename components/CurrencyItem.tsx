@@ -55,7 +55,7 @@ const CurrencyItem = () => {
             onClick={() => setAtualCurrency(item)}
           >
             <img
-              src={`/${item}.png`}
+              src={`/${item.toUpperCase()}.png`}
               alt={item}
               className='flex-shrink-0 h-6 w-6 rounded-full'
             />
