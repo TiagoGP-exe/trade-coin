@@ -15,3 +15,14 @@ const verifyLocale = (value: string) => {
       return 'pt-BR'
   }
 }
+
+export const manualFormarNumber = (currency: string, value: number) => {
+  switch (currency.toUpperCase()) {
+    case 'USD':
+      return `$${value}`
+    case 'EUR':
+      return `${value}€`
+    case 'BRL':
+      return `R$${value}`
+  }
+}

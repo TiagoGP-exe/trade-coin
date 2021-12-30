@@ -25,7 +25,7 @@ const Header: FC = () => {
           <ItemsHeaders title="Cryptocurrencies" />
           <ItemsHeaders title="Exchanges" goToPage="/exchanges" />
         </div>
-        <div className="flex items-center gap-2 ">
+        <div className="flex flex-col sm:flex-row items-center gap-2 ">
           <Search text={searchValue} setText={setSearchValue} />
           <CurrencyItem />
         </div>

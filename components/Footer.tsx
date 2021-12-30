@@ -2,14 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 import logo from '../assets/logo.svg'
-
 import { RiGithubLine } from 'react-icons/ri'
 
 const Footer: FC = () => {
   return (
-    <div className=" flex py-10 rounded-2xl max-w-screen-xl w-full justify-between">
+    <div className="flex flex-col gap-y-2 sm:flex-row py-10 rounded-2xl max-w-screen-xl w-full justify-between">
       <div className="flex gap-2 items-center">
-        <Link href="https://github.com/TiagoGP-exe">
+        <Link href="https://github.com/TiagoGP-exe/trade-coin">
           <a>
             <RiGithubLine
               size={32}

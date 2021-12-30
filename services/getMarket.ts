@@ -1,10 +1,6 @@
 import { api } from './api'
 
-interface IMarrket {
-  currency: string
-}
-
-export const getMarket = async ({ currency }: IMarrket) => {
+export const getMarket = async (currency: string) => {
   const { data } = await api.get('/coins/markets', {
     params: {
       vs_currency: currency,

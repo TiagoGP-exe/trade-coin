@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
-import { getExchange } from '../services/getExchange'
+import { FC } from 'react'
 import ItemsOfExChanges from './ItemsOfExchanges'
 
 export interface IExchanges {
@@ -17,21 +16,16 @@ export interface IExchanges {
   year_established: number
 }
 
-const ListOfExchanges = () => {
-  const [exchangesValues, setExchangesValues] = useState<IExchanges[]>([])
+interface ListOfExchangesProps {
+  exchanges: IExchanges[]
+}
 
-  useEffect(() => {
-    ;(async () => {
-      const payload = await getExchange()
-      setExchangesValues(payload)
-    })()
-  }, [])
-
+const ListOfExchanges: FC<ListOfExchangesProps> = ({ exchanges }) => {
   return (
     <>
-      {exchangesValues && (
+      {exchanges && (
         <div className="bg-white rounded-2xl max-w-screen-xl w-full xl:w-9/12">
-          {exchangesValues.map((item, index) => (
+          {exchanges.map((item, index) => (
             <ItemsOfExChanges key={index} exchange={item} id={index} />
           ))}
         </div>

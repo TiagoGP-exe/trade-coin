@@ -25,7 +25,7 @@ const ItemsOfExChanges: FC<ItemOfExcangesProps> = ({ exchange, id }) => {
             <img
               src={exchange.image}
               alt={exchange.name}
-              className={`h-6 w-6 hover:scale-125 duration-200 ease-in-out`}
+              className={`h-6 w-6 hover:scale-125 duration-200 ease-in-out rounded-lg`}
             />
             <h2 className="font-bold ">{exchange.name}</h2>
           </div>

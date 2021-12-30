@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { FC } from 'react'
 import { useCurrency } from '../context/Currency'
 import { IMarket } from '../interfaces/IMarket'
-import { formatNumber } from '../utils/currency'
+import { formatNumber, manualFormarNumber } from '../utils/currency'
 import Percentage from './Percentage'
 
 interface ItemOfListProps {
@@ -25,7 +25,7 @@ const ItemOfList: FC<ItemOfListProps> = ({ coin, id }) => {
             <img
               src={coin.image}
               alt={coin.name}
-              className={`h-6 w-6 hover:scale-125 duration-200 ease-in-out`}
+              className={`h-6 w-6 hover:scale-125 duration-200 ease-in-out rounded-lg`}
             />
             <h2 className="font-bold ">{coin.name}</h2>
             <p className="font-semibold text-gray-400">
@@ -33,7 +33,9 @@ const ItemOfList: FC<ItemOfListProps> = ({ coin, id }) => {
             </p>
           </div>
           <p className="flex flex-1 font-semibold justify-end">
-            {formatNumber(coin.current_price, atualCurrency)}
+            {coin.current_price > 1
+              ? formatNumber(coin.current_price, atualCurrency)
+              : manualFormarNumber(atualCurrency, coin.current_price)}
           </p>
           <div className="hidden sm:flex">
             <Percentage value={coin.price_change_percentage_24h} />

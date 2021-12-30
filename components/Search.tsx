@@ -58,13 +58,13 @@ const Search: FC<SearchProps> = ({ text, setText }) => {
   }, [])
 
   return (
-    <div className="relative">
+    <div className="relative max-w-full">
       <div
         className={`flex flex-row items-center border-2 ${setBackgroundColor} rounded-lg py-1 gap-1 px-2 `}
       >
         <HiOutlineSearch size={18} className="text-slate-400" />
         <input
-          className="bg-transparent text-sm placeholder:font-semibold placeholder:text-slate-400  text-slate-600 "
+          className="bg-transparent text-sm placeholder:font-semibold font-semibold placeholder:text-slate-400 focus:text-slate-600  text-slate-400 "
           type="text"
           value={text}
           placeholder="Search"
@@ -75,8 +75,8 @@ const Search: FC<SearchProps> = ({ text, setText }) => {
               setFilterDate(
                 date.filter(
                   item =>
-                    item.name.toLowerCase().startsWith(text) ||
-                    item.symbol.startsWith(text)
+                    item.name.toLowerCase().startsWith(text.toLowerCase()) ||
+                    item.symbol.startsWith(text.toLowerCase())
                 )
               )
           }}
@@ -101,7 +101,7 @@ const Search: FC<SearchProps> = ({ text, setText }) => {
                 <a className="flex gap-1 py-2 px-3 w-full z-30 text-slate-600 items-center hover:bg-slate-300 rounded-xl">
                   <p>{item.name}</p>
                   <p className="py-1 px-2 bg-slate-100 rounded-md">
-                    {item.symbol}
+                    {item.symbol.toUpperCase()}
                   </p>
                 </a>
               </Link>

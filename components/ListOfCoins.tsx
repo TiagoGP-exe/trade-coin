@@ -1,25 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
-import { useCurrency } from '../context/Currency'
+import { FC } from 'react'
 import { IMarket } from '../interfaces/IMarket'
-import { getMarket } from '../services/getMarket'
 import ItemOfList from './ItemsOfList'
 
-const ListOfCoins = () => {
-  const [coinValues, setCoinValues] = useState<IMarket[]>([])
-  const { atualCurrency } = useCurrency()
+interface ListOfCoinsProps {
+  coins: IMarket[]
+}
 
-  useEffect(() => {
-    ;(async () => {
-      const payload = await getMarket({ currency: atualCurrency })
-      setCoinValues(payload)
-    })()
-  }, [atualCurrency])
-
+const ListOfCoins: FC<ListOfCoinsProps> = ({ coins }) => {
   return (
     <>
-      {coinValues && (
+      {coins && (
         <div className="bg-white rounded-2xl max-w-screen-xl w-full xl:w-9/12">
-          {coinValues.map((item, index) => (
+          {coins.map((item, index) => (
             <ItemOfList key={index} coin={item} id={index} />
           ))}
         </div>
