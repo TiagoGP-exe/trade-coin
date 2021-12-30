@@ -75,7 +75,7 @@ const Search: FC<SearchProps> = ({ text, setText }) => {
   return (
     <div className='relative max-w-full'>
       <div
-        className={`flex flex-row items-center border-2 ${setBackgroundColor} rounded-lg py-1 gap-1 px-2 `}
+        className={`flex flex-row items-center border-2 ${setBackgroundColor} rounded-lg py-2  sm:py-1 gap-1 px-2 `}
       >
         <HiOutlineSearch size={18} className='text-slate-400' />
         <input
