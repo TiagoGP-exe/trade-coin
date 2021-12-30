@@ -1,7 +1,7 @@
 import { api } from './api'
 
 interface ICoin {
-  id: string
+  id: string | string[]
   currency: string
 }
 
