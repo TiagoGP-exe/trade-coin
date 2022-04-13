@@ -38,8 +38,8 @@ const Search: FC<SearchProps> = ({ text, setText }) => {
   const filtered = filterDate || date
 
   const setBackgroundColor = focused
-    ? 'border-slate-200 bg-slate-100'
-    : 'border-transparent bg-slate-200'
+    ? 'border-slate-200 bg-slate-100 dark:border-[#aab0d2] dark:bg-[#2C2F3F]'
+    : 'border-transparent bg-slate-200 dark:bg-[#373B54]'
 
   const closeModal = () => {
     const button = setTimeout(() => {
@@ -75,11 +75,11 @@ const Search: FC<SearchProps> = ({ text, setText }) => {
   return (
     <div className='relative max-w-full'>
       <div
-        className={`flex flex-row items-center border-2 ${setBackgroundColor} rounded-lg py-2  sm:py-1 gap-1 px-2 `}
+        className={`flex flex-row items-center border-2 z-30 ${setBackgroundColor} rounded-lg py-2  sm:py-1 gap-1 px-2 `}
       >
         <HiOutlineSearch size={18} className='text-slate-400' />
         <input
-          className='bg-transparent text-sm placeholder:font-semibold font-semibold placeholder:text-slate-400 focus:text-slate-600  text-slate-400 '
+          className='bg-transparent text-sm py-1 placeholder:font-semibold font-semibold placeholder:text-slate-400 focus:text-slate-600 dark:focus:text-slate-200  text-slate-400 '
           type='text'
           value={text}
           placeholder='Search'
@@ -99,16 +99,16 @@ const Search: FC<SearchProps> = ({ text, setText }) => {
         )}
       </div>
       {focused && text.length > 0 && (
-        <div className='absolute z-10 text-xs bg-white rounded-b-xl top-8 w-full shadow-2xl'>
+        <div className='absolute  text-xs z-[8] bg-white dark:bg-[#373B54] rounded-b-xl top-10 w-full shadow-2xl'>
           {filtered.slice(0, 10).map(item => (
             <div
               className='flex cursor-pointer font-semibold '
               key={item.id + item.name}
             >
               <Link href={`/coin/${item.id}`}>
-                <a className='flex gap-1 py-2 px-3 w-full z-30 text-slate-600 items-center hover:bg-slate-300 rounded-xl'>
+                <a className='flex gap-1 py-2 px-3 w-full z-30 text-slate-600 dark:text-slate-200 items-center hover:bg-slate-300 dark:hover:bg-[#31354c] rounded-xl'>
                   <p>{item.name}</p>
-                  <p className='py-1 px-2 bg-slate-100 rounded-md'>
+                  <p className='py-1 px-2 bg-slate-100 dark:bg-[#545979] rounded-md'>
                     {item.symbol.toUpperCase()}
                   </p>
                 </a>

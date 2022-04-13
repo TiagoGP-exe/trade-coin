@@ -26,6 +26,7 @@
   "rules": {
     "prettier/prettier" : "error",
     "space-before-function-paren" : "off",
+    "@typescript-eslint/no-extra-semi": "off",
     "no-shadow": "off",
     "camelcase": "off",
     "@typescript-eslint/no-shadow": ["error"],

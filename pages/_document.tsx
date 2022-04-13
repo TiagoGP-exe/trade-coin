@@ -12,7 +12,7 @@ export default class _Document extends Document {
             rel='stylesheet'
           />
         </Head>
-        <body>
+        <body className='bg-[#EAECEF] dark:bg-[#2C2F3F]'>
           <Main />
           <NextScript />
         </body>

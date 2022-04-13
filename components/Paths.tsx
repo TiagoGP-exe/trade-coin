@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import { AiOutlineRight } from 'react-icons/ai'
-import { toCapitalaze } from '../utils/string'
 
 interface PathsProps {
   path: string[]
@@ -8,15 +7,15 @@ interface PathsProps {
 }
 
 const Paths: FC<PathsProps> = ({ path, finalPath }) => (
-  <div className='flex gap-3 cursor-default items-center text-gray-400 text-sm py-4'>
+  <div className='flex gap-3 cursor-default items-center text-gray-400 dark:text-slate-500 text-sm py-4'>
     {path.map(itemPath => (
       <div key={itemPath} className='flex gap-3 items-center'>
-        <p>{itemPath}</p>
+        <p>{itemPath.toUpperCase()}</p>
         <AiOutlineRight />
       </div>
     ))}
-    <p className='cursor-default text-gray-800 font-semibold'>
-      {toCapitalaze(finalPath)}
+    <p className='cursor-default text-gray-800 dark:text-slate-300 font-semibold'>
+      {finalPath?.toUpperCase()}
     </p>
   </div>
 )

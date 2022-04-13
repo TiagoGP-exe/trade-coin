@@ -1,4 +1,4 @@
-import { createContext, FC, useContext, useState } from 'react'
+import { createContext, FC, useContext, useEffect, useState } from 'react'
 
 interface ICurrencyContext {
   atualCurrency: string
@@ -8,15 +8,18 @@ interface ICurrencyContext {
 const CurrencyContext = createContext<ICurrencyContext | null>(null)
 
 export const CurrencyProvider: FC = ({ children }) => {
-  const [atualCurrency, setAtualCurrency] = useState(e => {
-    if (e) {
-      return e
-    }
+  const [atualCurrency, setAtualCurrency] = useState('usd')
 
-    return 'usd'
-  })
+  useEffect(() => {
+    if (typeof window !== 'undefined' && atualCurrency) {
+      const coin = localStorage.getItem('atualCurrency')
+
+      setAtualCurrency(JSON.parse(coin))
+    }
+  }, [])
 
   const SetValue = (value: string) => {
+    localStorage.setItem('atualCurrency', JSON.stringify(value))
     setAtualCurrency(value)
   }
 
