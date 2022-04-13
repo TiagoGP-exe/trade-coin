@@ -15,7 +15,7 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
 
   return (
     <div className='flex w-full  py-6 px-2 rounded-xl mb-2'>
-      <div className='flex flex-col px-5 md:px-0 py-2 md:py-0 sm:flex-row gap-y-5 justify-between w-full items-center '>
+      <div className='flex flex-col px-5 md:px-0 py-2 md:py-0 sm:flex-row gap-y-5 justify-between w-full items-center flex-wrap'>
         <div className='flex text-slate-700 dark:text-slate-200 font-semibold items-center justify-between flex-1'>
           <div className='bg-slate-200 dark:bg-[#272A37] flex items-center gap-1 justify-center w-full py-2 px-3 rounded-l-xl max-w-[5rem]'>
             <p>

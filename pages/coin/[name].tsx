@@ -31,12 +31,16 @@ const CoinDetails = () => {
     <>
       <Header />
       <div className='flex w-full justify-center items-center'>
-        <div className='max-w-screen-xl p-3 w-full'>
-          <Paths path={pathOfRoute} finalPath={coinValues?.name} />
+        <div className='max-w-screen-xl  w-full'>
+          <Paths
+            path={pathOfRoute}
+            className='p-3 mt-4 md:mt-8'
+            finalPath={coinValues?.name}
+          />
 
           {coinValues && (
             <>
-              <div className='bg-white dark:bg-[#202230] py-8 px-10 rounded-2xl'>
+              <div className='bg-white dark:bg-[#202230] py-8 px-4 md:px-10 rounded-2xl'>
                 <CoinInfos infos={coinValues} />
                 <div className='flex flex-col-reverse lg:flex-row gap-2 w-full'>
                   <div className='flex flex-col w-full'>

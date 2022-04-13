@@ -12,8 +12,8 @@ const CoinInfos: FC<CoinInfosProps> = ({ infos }) => {
   const { atualCurrency } = useCurrency()
 
   return (
-    <div className='flex flex-col justify-center gap-2 sm:flex-row sm:justify-between pb-4 '>
-      <div className='flex items-center gap-3'>
+    <div className='flex  items-stretch  gap-2 justify-between pb-4 '>
+      <div className='flex items-center gap-3 '>
         <img
           src={infos?.image}
           alt={infos?.name}
@@ -28,8 +28,8 @@ const CoinInfos: FC<CoinInfosProps> = ({ infos }) => {
           </p>
         </div>
       </div>
-      <div className='flex flex-col items-end gap-2 '>
-        <h1 className='font-bold text-2xl text-slate-800 dark:text-slate-200'>
+      <div className='flex flex-col items-end'>
+        <h1 className='font-bold text-xl md:text-2xl text-slate-800 dark:text-slate-200'>
           {infos?.current_price > 1
             ? formatNumber(infos?.current_price, atualCurrency)
             : manualFormarNumber(atualCurrency, infos?.current_price)}
@@ -39,7 +39,7 @@ const CoinInfos: FC<CoinInfosProps> = ({ infos }) => {
             infos?.price_change_percentage_24h > 0
               ? 'bg-green-500'
               : 'bg-red-500'
-          } font-semibold text-white dark:text-[#202230] rounded-lg py-1 px-2 items-center  gap-x-0.5`}
+          } font-semibold text-white dark:text-[#202230] text-xs rounded-lg py-1 px-2 items-center  gap-x-0.5`}
         >
           {infos?.price_change_percentage_24h > 0 ? (
             <AiFillCaretUp />
