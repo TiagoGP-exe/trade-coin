@@ -1,3 +1,4 @@
+import { useTheme } from 'next-themes'
 import { FC, useEffect, useState } from 'react'
 import Charts from 'react-apexcharts'
 import { useCurrency } from '../context/Currency'
@@ -32,6 +33,8 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
   const [date, setDate] = useState<ChartValues>()
   const [days, setDays] = useState<ButtonsProps>({ label: '1D', value: '1' })
   const { atualCurrency } = useCurrency()
+  const { theme } = useTheme()
+  const color = theme === 'light' ? '#fff' : '#202230'
 
   useEffect(() => {
     ;(async () => {
@@ -43,23 +46,24 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
 
       setDate(payload)
     })()
-  }, [days, atualCurrency])
+  }, [days, atualCurrency, idCrypto])
 
   return (
     <>
       {date && (
-        <div className='bg-white p-2 rounded-xl duration-200'>
+        <div className='p-2 rounded-xl duration-200'>
           <div className='flex gap-1 flex-col sm:flex-row w-full sm:justify-between sm:items-center px-2 my-4'>
-            <h1 className='font-bold text-xl text-slate-700'>
+            <h1 className='font-bold text-xl text-slate-700 dark:text-slate-200'>
               {name} to {currency} Chart
             </h1>
-            <div className='flex flex-row bg-slate-100 py-0.5 rounded-xl '>
+            <div className='flex flex-row bg-slate-100 dark:bg-[#2C2F3F] py-0.5 rounded-xl '>
               {Calendar.map(({ label, value }) => (
                 <button
                   key={value}
                   className={`${
-                    days.value === value && 'bg-white'
-                  } hover:bg-white duration-150 px-3 py-1 ml-0.5 rounded-xl font-semibold text-slate-500 backdrop-blur-3xl`}
+                    days.value === value &&
+                    'bg-white dark:bg-[#202230] dark:text-slate-200'
+                  } hover:bg-white dark:hover:bg-[#3a3d52] duration-150 px-3 py-1 ml-0.5 rounded-xl font-semibold text-slate-500 backdrop-blur-3xl`}
                   onClick={() => setDays({ label: label, value: value })}
                 >
                   {label}
@@ -67,56 +71,63 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
               ))}
             </div>
           </div>
-          <Charts
-            type='area'
-            height={350}
-            width='100%'
-            series={[{ name: idCrypto, data: date.prices }]}
-            options={{
-              stroke: { curve: 'smooth', width: 2 },
-              dataLabels: {
-                enabled: false,
-              },
-              fill: {
-                type: 'gradient',
-                gradient: {
-                  shadeIntensity: 1,
-                  opacityFrom: 0.7,
-                  opacityTo: 0.9,
-                  stops: [0, 90, 100],
+          <div className='dark:text-black'>
+            <Charts
+              type='area'
+              height={350}
+              width='100%'
+              series={[{ name: idCrypto, data: date.prices }]}
+              options={{
+                stroke: { curve: 'smooth', width: 2 },
+                dataLabels: {
+                  enabled: false,
                 },
-              },
-              chart: {
-                toolbar: {
-                  show: false,
-                },
-              },
-              grid: {
-                borderColor: '#e9e9e9cc',
-              },
 
-              tooltip: {
-                followCursor: true,
-                x: {
-                  format: 'dd/MM/yy HH:mm',
+                grid: {
+                  borderColor: 'transparent',
+                  strokeDashArray: 0,
                 },
-                y: {
-                  formatter: e =>
-                    new Intl.NumberFormat(atualCurrency).format(e),
+
+                fill: {
+                  type: 'gradient',
+                  colors: ['#008FFB', '#E91E63', '#9C27B0'],
+                  gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.7,
+                    opacityTo: 0.9,
+                    stops: [0, 90, 100],
+                    gradientToColors: [color],
+                  },
                 },
-              },
-              xaxis: {
-                type: 'datetime',
-              },
-              yaxis: {
-                labels: {
-                  style: { fontWeight: 'bold' },
-                  formatter: e =>
-                    new Intl.NumberFormat(atualCurrency).format(e),
+                chart: {
+                  toolbar: {
+                    show: false,
+                  },
                 },
-              },
-            }}
-          />
+
+                tooltip: {
+                  followCursor: true,
+                  x: {
+                    format: 'dd/MM/yy HH:mm',
+                  },
+                  y: {
+                    formatter: e =>
+                      new Intl.NumberFormat(atualCurrency).format(e),
+                  },
+                },
+                xaxis: {
+                  type: 'datetime',
+                },
+                yaxis: {
+                  labels: {
+                    style: { fontWeight: 'bold' },
+                    formatter: e =>
+                      new Intl.NumberFormat(atualCurrency).format(e),
+                  },
+                },
+              }}
+            />
+          </div>
         </div>
       )}
     </>

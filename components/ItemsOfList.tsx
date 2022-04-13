@@ -16,7 +16,7 @@ const ItemOfList: FC<ItemOfListProps> = ({ coin, id }) => {
     <Link href={`/coin/${coin.id}`}>
       <a>
         <div
-          className={`flex flex-row gap-3 py-3 px-4 hover:bg-slate-200 duration-150 cursor-pointer items-center rounded-xl ${
+          className={`flex flex-row gap-3 py-3 px-4 hover:bg-slate-200 dark:hover:bg-[#383b56] duration-150 cursor-pointer items-center rounded-xl ${
             id > 0 && 'mt-2'
           }`}
         >

@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import CoinInfos from '../../components/CoinInfos'
-import CoinInfosDetails from '../../components/CoinInfosDetails'
 import CoinTrade from '../../components/CoinTrade'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
@@ -37,17 +36,19 @@ const CoinDetails = () => {
 
           {coinValues && (
             <>
-              <CoinInfos infos={coinValues} />
-              <div className='flex flex-col-reverse lg:flex-row gap-2 w-full'>
-                <div className='flex flex-col w-full'>
-                  <CoinTrade infos={coinValues} />
-                  <Chart
-                    idCrypto={coinValues.id}
-                    currency={atualCurrency}
-                    name={coinValues.name}
-                  />
+              <div className='bg-white dark:bg-[#202230] py-8 px-10 rounded-2xl'>
+                <CoinInfos infos={coinValues} />
+                <div className='flex flex-col-reverse lg:flex-row gap-2 w-full'>
+                  <div className='flex flex-col w-full'>
+                    <CoinTrade infos={coinValues} />
+                    <Chart
+                      idCrypto={coinValues.id}
+                      currency={atualCurrency}
+                      name={coinValues.name}
+                    />
+                  </div>
+                  {/* <CoinInfosDetails infos={coinValues} /> */}
                 </div>
-                <CoinInfosDetails infos={coinValues} />
               </div>
               <div className='flex flex-col justify-center items-center mt-12 w-full '>
                 <Footer />

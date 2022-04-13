@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import { FC } from 'react'
 import { RiGithubLine } from 'react-icons/ri'
+import Logo from './Logo'
 
 const Footer: FC = () => (
-  <div className='flex flex-col gap-y-2 sm:flex-row py-10 rounded-2xl max-w-screen-xl w-full justify-between'>
+  <div className='flex flex-col gap-y-2 sm:flex-row py-10 rounded-2xl max-w-screen-xl w-full justify-between items-center'>
     <div className='flex gap-2 items-center'>
       <Link href='https://github.com/TiagoGP-exe/trade-coin'>
         <a>
@@ -16,10 +17,7 @@ const Footer: FC = () => (
       <div>
         <Link href='/'>
           <a>
-            <img
-              src='/logo.svg'
-              className=' cursor-pointer opacity-90  hover:opacity-100 duration-150 ease-in-out w-40'
-            />
+            <Logo classname='w-14' />
           </a>
         </Link>
       </div>
