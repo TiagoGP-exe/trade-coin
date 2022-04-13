@@ -18,7 +18,7 @@ const verifyLocale = (value: string) => {
 }
 
 export const manualFormarNumber = (currency: string, value: number) => {
-  switch (currency.toUpperCase()) {
+  switch (currency?.toUpperCase()) {
     case 'USD':
       return `$${value}`
     case 'EUR':

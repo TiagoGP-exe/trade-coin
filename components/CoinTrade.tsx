@@ -20,8 +20,8 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
           <div className='bg-slate-200 dark:bg-[#272A37] flex items-center gap-1 justify-center w-full py-2 px-3 rounded-l-xl max-w-[5rem]'>
             <p>
               {swap
-                ? atualCurrency.toUpperCase()
-                : infos.symbol.toLocaleUpperCase()}
+                ? atualCurrency?.toUpperCase()
+                : infos.symbol?.toLocaleUpperCase()}
             </p>
           </div>
 

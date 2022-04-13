@@ -29,7 +29,7 @@ const ItemOfList: FC<ItemOfListProps> = ({ coin, id }) => {
             />
             <h2 className='font-bold '>{coin.name}</h2>
             <p className='font-semibold text-gray-400'>
-              {coin.symbol.toUpperCase()}
+              {coin.symbol?.toUpperCase()}
             </p>
           </div>
           <p className='flex flex-1 font-semibold justify-end'>

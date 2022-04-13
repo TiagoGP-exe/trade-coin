@@ -11,7 +11,7 @@ const ItemsHeaders: FC<ItemsHeaders> = ({ title, goToPage = '/' }) => (
     <Link href={goToPage}>
       <a>
         <p className='font-semibold cursor-pointer hover:text-cyan-500 duration-150 hover:tracking-wider ease-in-out'>
-          {title.toUpperCase()}
+          {title?.toUpperCase()}
         </p>
       </a>
     </Link>

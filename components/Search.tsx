@@ -109,7 +109,7 @@ const Search: FC<SearchProps> = ({ text, setText }) => {
                 <a className='flex gap-1 py-2 px-3 w-full z-30 text-slate-600 dark:text-slate-200 items-center hover:bg-slate-300 dark:hover:bg-[#31354c] rounded-xl'>
                   <p>{item.name}</p>
                   <p className='py-1 px-2 bg-slate-100 dark:bg-[#545979] rounded-md'>
-                    {item.symbol.toUpperCase()}
+                    {item.symbol?.toUpperCase()}
                   </p>
                 </a>
               </Link>
