@@ -48,11 +48,13 @@ const CoinDetails = () => {
                   <CoinTrade infos={coinValues} />
 
                   <div className='flex flex-col-reverse lg:flex-row gap-2 w-full '>
-                    <Chart
-                      idCrypto={coinValues.id}
-                      currency={atualCurrency}
-                      name={coinValues.name}
-                    />
+                    <div className='w-full'>
+                      <Chart
+                        idCrypto={coinValues.id}
+                        currency={atualCurrency}
+                        name={coinValues.name}
+                      />
+                    </div>
                     <CoinInfosDetails infos={coinValues} />
                   </div>
                 </div>
