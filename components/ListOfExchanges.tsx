@@ -26,7 +26,7 @@ const fakeArray = Array.from({ length: 100 }, (_, i) => i)
 const ListOfExchanges: FC<ListOfExchangesProps> = ({ exchanges }) => (
   <>
     <div className='bg-white dark:bg-[#202230] rounded-2xl max-w-screen-xl w-full xl:w-9/12'>
-      {exchanges ? (
+      {exchanges.length ? (
         <>
           {exchanges.map((item, index) => (
             <ItemsOfExChanges key={index} exchange={item} id={index} />
