@@ -51,7 +51,7 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
   return (
     <>
       {date && (
-        <div className='p-2 rounded-xl duration-200'>
+        <div className='p-2 rounded-xl duration-200 w-full'>
           <div className='flex gap-1 flex-col sm:flex-row w-full sm:justify-between sm:items-center px-2 my-4'>
             <h1 className='font-bold text-xl text-slate-700 dark:text-slate-200'>
               {name} to {currency} Chart

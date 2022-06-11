@@ -12,7 +12,7 @@ const CoinInfosDetails: FC<CoinInfosProps> = ({ infos }) => {
   const { atualCurrency } = useCurrency()
 
   return (
-    <div className='text-slate-700 p-4 bg-sky-200 rounded-xl backdrop-blur-2xl transition-all duration-200 ease-in-out'>
+    <div className='text-slate-700 bg-slate-100 dark:text-slate-100 px-6 py-4 dark:bg-[#282b3f]  rounded-xl backdrop-blur-2xl transition-all duration-200 ease-in-out'>
       <h1 className='font-bold text-2xl  mb-2'>
         {infos.symbol.toLocaleUpperCase()} Price Statistics
       </h1>
@@ -50,8 +50,8 @@ const CoinInfosDetails: FC<CoinInfosProps> = ({ infos }) => {
 }
 
 const ItemCoinDetails: FC<ItemCoinDetails> = ({ title, children }) => (
-  <div className='flex py-2 text-sm font-semibold w-full items-center justify-between border-gray-100'>
-    <p className='text-slate-600'>{title}</p>
+  <div className='flex py-2 text-sm font-semibold text-slate-600 dark:text-slate-100 w-full items-center justify-between border-gray-100'>
+    <p>{title}</p>
     <div className='flex flex-col items-end'>{children}</div>
   </div>
 )

@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import ItemsOfExChanges from './ItemsOfExchanges'
+import { ItemOfListSkeleton } from './ItemsOfList'
 
 export interface IExchanges {
   country: string
@@ -19,16 +20,26 @@ export interface IExchanges {
 interface ListOfExchangesProps {
   exchanges: IExchanges[]
 }
+// fake array of 100 items of list
+const fakeArray = Array.from({ length: 100 }, (_, i) => i)
 
 const ListOfExchanges: FC<ListOfExchangesProps> = ({ exchanges }) => (
   <>
-    {exchanges && (
-      <div className='bg-white dark:bg-[#202230] rounded-2xl max-w-screen-xl w-full xl:w-9/12'>
-        {exchanges.map((item, index) => (
-          <ItemsOfExChanges key={index} exchange={item} id={index} />
-        ))}
-      </div>
-    )}
+    <div className='bg-white dark:bg-[#202230] rounded-2xl max-w-screen-xl w-full xl:w-9/12'>
+      {exchanges ? (
+        <>
+          {exchanges.map((item, index) => (
+            <ItemsOfExChanges key={index} exchange={item} id={index} />
+          ))}
+        </>
+      ) : (
+        <>
+          {fakeArray.map(item => (
+            <ItemOfListSkeleton key={item} />
+          ))}
+        </>
+      )}
+    </div>
   </>
 )
 

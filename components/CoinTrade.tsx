@@ -81,3 +81,10 @@ const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {
 }
 
 export default CoinTrade
+
+export const CoinTradeSkeleton = () => (
+  <div className='flex flex-col sm:flex-row gap-10 items-center '>
+    <div className='h-8 bg-slate-200 dark:bg-[#383b56] rounded-xl w-3/5'></div>
+    <div className='h-8 bg-slate-200 dark:bg-[#383b56] rounded-xl w-3/5'></div>
+  </div>
+)

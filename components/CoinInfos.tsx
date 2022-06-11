@@ -58,3 +58,20 @@ const CoinInfos: FC<CoinInfosProps> = ({ infos }) => {
 }
 
 export default CoinInfos
+
+export const CoinInfosSkeleton: FC = () => (
+  <div className='flex items-center justify-between'>
+    <div className='flex items-center gap-3'>
+      <div className='h-14 w-14 bg-slate-200 dark:bg-[#383b56] rounded-full'></div>
+      <div className='flex flex-col gap-2'>
+        <div className='h-6  w-28 bg-slate-200 dark:bg-[#383b56] rounded-full'></div>
+        <div className='h-4 w-16 bg-slate-200 dark:bg-[#383b56] rounded-full'></div>
+      </div>
+    </div>
+
+    <div className='flex flex-col items-end gap-3'>
+      <div className='h-6 w-24 sm:w-32 bg-slate-200 dark:bg-[#383b56] rounded-full'></div>
+      <div className='h-4 w-12 sm:w-16 bg-slate-200 dark:bg-[#383b56] rounded-full'></div>
+    </div>
+  </div>
+)

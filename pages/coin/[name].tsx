@@ -1,8 +1,9 @@
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import CoinInfos from '../../components/CoinInfos'
-import CoinTrade from '../../components/CoinTrade'
+import CoinInfos, { CoinInfosSkeleton } from '../../components/CoinInfos'
+import CoinInfosDetails from '../../components/CoinInfosDetails'
+import CoinTrade, { CoinTradeSkeleton } from '../../components/CoinTrade'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import Paths from '../../components/Paths'
@@ -38,27 +39,47 @@ const CoinDetails = () => {
             finalPath={coinValues?.name}
           />
 
-          {coinValues && (
-            <>
-              <div className='bg-white dark:bg-[#202230] py-8 px-4 md:px-10 rounded-2xl'>
+          <div className='bg-white dark:bg-[#202230] py-8 px-4 md:px-10 rounded-2xl'>
+            {coinValues ? (
+              <>
                 <CoinInfos infos={coinValues} />
-                <div className='flex flex-col-reverse lg:flex-row gap-2 w-full'>
-                  <div className='flex flex-col w-full'>
-                    <CoinTrade infos={coinValues} />
+
+                <div className='flex flex-col w-full'>
+                  <CoinTrade infos={coinValues} />
+
+                  <div className='flex flex-col-reverse lg:flex-row gap-2 w-full '>
                     <Chart
                       idCrypto={coinValues.id}
                       currency={atualCurrency}
                       name={coinValues.name}
                     />
+                    <CoinInfosDetails infos={coinValues} />
                   </div>
-                  {/* <CoinInfosDetails infos={coinValues} /> */}
+                </div>
+              </>
+            ) : (
+              <div className='animate-pulse'>
+                <CoinInfosSkeleton />
+
+                <div className='flex flex-col w-full mt-10'>
+                  <CoinTradeSkeleton />
+                  <div className='grid grid-cols-4 gap-4 mt-10 '>
+                    <div className='h-96 rounded-xl gap-2 col-span-4 md:col-span-3'>
+                      <div className='flex justify-between max-h-8 mb-5 gap-5'>
+                        <div className='h-8 bg-slate-200 dark:bg-[#383b56] rounded-xl w-48'></div>
+                        <div className='h-8 bg-slate-200 dark:bg-[#383b56] rounded-xl w-60'></div>
+                      </div>
+                      <div className='h-full bg-slate-200 dark:bg-[#383b56] rounded-xl w-full max-h-[20.75rem]'></div>
+                    </div>
+                    <div className='h-96 bg-slate-200 dark:bg-[#383b56] rounded-xl col-span-4 md:col-span-1'></div>
+                  </div>
                 </div>
               </div>
-              <div className='flex flex-col justify-center items-center mt-12 w-full '>
-                <Footer />
-              </div>
-            </>
-          )}
+            )}
+          </div>
+          <div className='flex flex-col justify-center items-center mt-12 w-full '>
+            <Footer />
+          </div>
         </div>
       </div>
     </>

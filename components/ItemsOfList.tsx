@@ -53,3 +53,12 @@ const ItemOfList: FC<ItemOfListProps> = ({ coin, id }) => {
 }
 
 export default ItemOfList
+
+export const ItemOfListSkeleton: FC = () => {
+  return (
+    <div className='flex flex-row gap-3 py-3 px-4 duration-150 cursor-pointer items-center rounded-xl w-full animate-pulse'>
+      <div className='flex rounded-full bg-slate-200 dark:bg-[#383b56] h-8 w-8 '></div>
+      <div className='h-4 bg-slate-200 dark:bg-[#383b56]  rounded-full flex-1'></div>
+    </div>
+  )
+}
