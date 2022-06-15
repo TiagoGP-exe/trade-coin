@@ -23,8 +23,11 @@ const CoinDetails = () => {
 
   useEffect(() => {
     ;(async () => {
-      const payload = await getCoin({ id: name, currency: atualCurrency })
-      setCoinValues(payload[0])
+      if (name) {
+        const payload = await getCoin({ id: name, currency: atualCurrency })
+
+        setCoinValues(payload[0])
+      }
     })()
   }, [name, atualCurrency])
 
