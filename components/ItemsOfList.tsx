@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { useCurrency } from '../context/Currency'
 import { IMarket } from '../interfaces/IMarket'
 import { formatNumber, manualFormarNumber } from '../utils/currency'
@@ -17,9 +17,7 @@ const ItemOfList: FC<ItemOfListProps> = ({ coin, id }) => {
     <Link href={`/coin/${coin.id}`}>
       <a>
         <div
-          className={`flex flex-row gap-3 py-3 px-4 hover:bg-slate-200 dark:hover:bg-[#383b56] duration-150 cursor-pointer items-center rounded-xl ${
-            id > 0 && 'mt-2'
-          }`}
+          className={`flex flex-row gap-3 py-3 px-4 hover:bg-slate-200 dark:hover:bg-[#383b56] duration-150 cursor-pointer items-center rounded-xl `}
         >
           <div className='flex flex-row gap-3 flex-1 items-center justify-start '>
             <p className='text-sm text-gray-400'>{++id}</p>
@@ -52,7 +50,7 @@ const ItemOfList: FC<ItemOfListProps> = ({ coin, id }) => {
   )
 }
 
-export default ItemOfList
+export default memo(ItemOfList)
 
 export const ItemOfListSkeleton: FC = () => {
   return (
