@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 import { useCurrency } from '../context/Currency'
@@ -22,11 +23,10 @@ const ItemOfList: FC<ItemOfListProps> = ({ coin, id }) => {
         >
           <div className='flex flex-row gap-3 flex-1 items-center justify-start '>
             <p className='text-sm text-gray-400'>{++id}</p>
-            <img
-              src={coin.image}
-              alt={coin.name}
-              className={`h-6 w-6 hover:scale-125 duration-200 ease-in-out rounded-lg`}
-            />
+            <div className='relative h-6 w-6 hover:scale-125 duration-200 ease-in-out rounded-lg'>
+              <Image src={coin.image} alt={coin.name} layout='fill' />
+            </div>
+
             <h2 className='font-bold '>{coin.name}</h2>
             <p className='font-semibold text-gray-400'>
               {coin.symbol?.toUpperCase()}
