@@ -6,12 +6,12 @@ import CoinInfos, { CoinInfosSkeleton } from '../../components/CoinInfos'
 import CoinInfosDetails from '../../components/CoinInfosDetails'
 import CoinTrade, { CoinTradeSkeleton } from '../../components/CoinTrade'
 import Footer from '../../components/Footer'
-import Header from '../../components/Header'
 import Paths from '../../components/Paths'
 
+import { motion } from 'framer-motion'
 import { IMarket } from '../../../interfaces/IMarket'
-import { getCoin } from '../../services/getCoin'
 import { useCurrency } from '../../hooks/Currency'
+import { getCoin } from '../../services/getCoin'
 import { toCapitalaze } from '../../utils/string'
 const Chart = dynamic(() => import('../../components/Chart'), { ssr: false })
 
@@ -37,9 +37,15 @@ const CoinDetails = () => {
   return (
     <>
       <Head>
-        <title>Trade Coin • {toCapitalaze(name as string)}</title>
+        <title>Trade Coin {`• ${toCapitalaze(name as string)}`}</title>
       </Head>
-      <div className='flex w-full justify-center items-center'>
+      <motion.div
+        exit={{ opacity: 0 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, type: 'spring', bounce: 0 }}
+        className='flex w-full justify-center items-center'
+      >
         <div className='max-w-screen-xl  w-full'>
           <Paths
             path={pathOfRoute}
@@ -91,7 +97,7 @@ const CoinDetails = () => {
             <Footer />
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }

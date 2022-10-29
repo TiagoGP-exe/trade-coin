@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion'
 import { FC } from 'react'
 import Footer from '../components/Footer'
-import Header from '../components/Header'
 import ListOfExchanges, { IExchanges } from '../components/ListOfExchanges'
 import { getExchange } from '../services/getExchange'
 
@@ -9,10 +9,16 @@ interface ExchangesProps {
 }
 
 const exchange: FC<ExchangesProps> = ({ exchanges }) => (
-  <div className='flex flex-col justify-center items-center gap-12 mt-12'>
+  <motion.div
+    exit={{ opacity: 0 }}
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, type: 'spring', bounce: 0 }}
+    className='flex flex-col justify-center items-center gap-12 mt-12'
+  >
     <ListOfExchanges exchanges={exchanges} />
     {exchanges.length > 0 && <Footer />}
-  </div>
+  </motion.div>
 )
 
 export const getStaticProps = async () => {

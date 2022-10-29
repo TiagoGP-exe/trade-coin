@@ -1,9 +1,9 @@
+import { motion } from 'framer-motion'
 import Cookies from 'js-cookie'
 import { FC } from 'react'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import ListOfCoins from '../components/ListOfCoins'
 import { IMarket } from '../../interfaces/IMarket'
+import Footer from '../components/Footer'
+import ListOfCoins from '../components/ListOfCoins'
 import { getMarket } from '../services/getMarket'
 
 interface HomeProps {
@@ -11,10 +11,16 @@ interface HomeProps {
 }
 
 const Home: FC<HomeProps> = ({ coinValues }) => (
-  <div className='relative flex flex-col justify-center items-center gap-12 mt-12'>
+  <motion.div
+    exit={{ opacity: 0 }}
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, type: 'spring', bounce: 0 }}
+    className='relative flex flex-col justify-center items-center gap-12 mt-12'
+  >
     <ListOfCoins coins={coinValues} />
     {coinValues.length > 0 && <Footer />}
-  </div>
+  </motion.div>
 )
 
 export const getStaticProps = async () => {

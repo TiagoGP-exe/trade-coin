@@ -3,22 +3,20 @@ const slideUp = {
   variants: {
     initial: {
       opacity: 0,
-      top: '100vh',
-      scale: 0.4,
+      scale: 0.9,
     },
     animate: {
       opacity: 1,
-      top: '0vh',
       scale: 1,
     },
     exit: {
       opacity: 0,
-      top: '100vh',
-      scale: 0.4,
     },
   },
   transition: {
     duration: 0.5,
+    type: 'spring',
+    bounce: 0,
   },
 }
 
@@ -42,7 +40,9 @@ const slideRight = {
     },
   },
   transition: {
-    duration: 0.7,
+    duration: 0.6,
+    type: 'spring',
+    bounce: 0,
   },
 }
 
@@ -63,7 +63,9 @@ const fadeBack = {
     },
   },
   transition: {
-    duration: 0.7,
+    duration: 0.6,
+    type: 'spring',
+    bounce: 0,
   },
 }
 
@@ -81,7 +83,9 @@ const rotateY = {
     },
   },
   transition: {
-    duration: 0.7,
+    duration: 0.6,
+    type: 'spring',
+    bounce: 0,
   },
 }
 
@@ -105,7 +109,9 @@ const rotateX = {
     },
   },
   transition: {
-    duration: 0.7,
+    duration: 0.6,
+    type: 'spring',
+    bounce: 0,
   },
 }
 
@@ -126,13 +132,15 @@ const rotateZ = {
     },
   },
   transition: {
-    duration: 0.7,
+    duration: 0.6,
+    type: 'spring',
+    bounce: 0,
   },
 }
 
 export const animations = [
-  fadeBack,
   slideUp,
+  fadeBack,
   slideRight,
   rotateX,
   rotateY,
