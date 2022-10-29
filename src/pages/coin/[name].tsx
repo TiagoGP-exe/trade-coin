@@ -39,7 +39,6 @@ const CoinDetails = () => {
       <Head>
         <title>Trade Coin • {toCapitalaze(name as string)}</title>
       </Head>
-      <Header />
       <div className='flex w-full justify-center items-center'>
         <div className='max-w-screen-xl  w-full'>
           <Paths

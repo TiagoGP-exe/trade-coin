@@ -9,12 +9,9 @@ interface ExchangesProps {
 }
 
 const exchange: FC<ExchangesProps> = ({ exchanges }) => (
-  <div>
-    <Header />
-    <div className='flex flex-col justify-center items-center gap-12 mt-12'>
-      <ListOfExchanges exchanges={exchanges} />
-      {exchanges.length > 0 && <Footer />}
-    </div>
+  <div className='flex flex-col justify-center items-center gap-12 mt-12'>
+    <ListOfExchanges exchanges={exchanges} />
+    {exchanges.length > 0 && <Footer />}
   </div>
 )
 

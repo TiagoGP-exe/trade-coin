@@ -11,12 +11,9 @@ interface HomeProps {
 }
 
 const Home: FC<HomeProps> = ({ coinValues }) => (
-  <div>
-    <Header />
-    <div className='relative flex flex-col justify-center items-center gap-12 mt-12'>
-      <ListOfCoins coins={coinValues} />
-      {coinValues.length > 0 && <Footer />}
-    </div>
+  <div className='relative flex flex-col justify-center items-center gap-12 mt-12'>
+    <ListOfCoins coins={coinValues} />
+    {coinValues.length > 0 && <Footer />}
   </div>
 )
 
