@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import ItemsOfExChanges from './ItemsOfExchanges'
-import { ItemOfListSkeleton } from './ItemsOfList'
 
 export interface IExchanges {
   country: string
