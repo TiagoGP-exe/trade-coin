@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { AiOutlineSwap } from 'react-icons/ai'
-import { useCurrency } from '../context/Currency'
+import { useCurrency } from '../hooks/Currency'
 import { CoinInfosProps } from './CoinInfos'
 
 const CoinTrade: FC<CoinInfosProps> = ({ infos }) => {

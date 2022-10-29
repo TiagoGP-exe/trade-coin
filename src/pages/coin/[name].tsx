@@ -1,15 +1,18 @@
 import dynamic from 'next/dynamic'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useMemo, useState } from 'react'
 import CoinInfos, { CoinInfosSkeleton } from '../../components/CoinInfos'
 import CoinInfosDetails from '../../components/CoinInfosDetails'
 import CoinTrade, { CoinTradeSkeleton } from '../../components/CoinTrade'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import Paths from '../../components/Paths'
-import { useCurrency } from '../../context/Currency'
-import { IMarket } from '../../interfaces/IMarket'
+
+import { IMarket } from '../../../interfaces/IMarket'
 import { getCoin } from '../../services/getCoin'
+import { useCurrency } from '../../hooks/Currency'
+import { toCapitalaze } from '../../utils/string'
 const Chart = dynamic(() => import('../../components/Chart'), { ssr: false })
 
 const pathOfRoute = ['Cryptocurrencies', 'Coins']
@@ -21,7 +24,7 @@ const CoinDetails = () => {
   const [coinValues, setCoinValues] = useState<IMarket>()
   const { atualCurrency } = useCurrency()
 
-  useEffect(() => {
+  useMemo(() => {
     ;(async () => {
       if (name) {
         const payload = await getCoin({ id: name, currency: atualCurrency })
@@ -33,6 +36,9 @@ const CoinDetails = () => {
 
   return (
     <>
+      <Head>
+        <title>Trade Coin • {toCapitalaze(name as string)}</title>
+      </Head>
       <Header />
       <div className='flex w-full justify-center items-center'>
         <div className='max-w-screen-xl  w-full'>

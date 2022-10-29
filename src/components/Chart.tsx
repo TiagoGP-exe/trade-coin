@@ -1,19 +1,14 @@
 import { useTheme } from 'next-themes'
+import dynamic from 'next/dynamic'
 import { FC, useEffect, useState } from 'react'
-import Charts from 'react-apexcharts'
-import { useCurrency } from '../context/Currency'
 import { getHistory } from '../services/getHistory'
+
+const Charts = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 interface ChartProps {
   idCrypto: string
   currency: string
   name: string
-}
-
-interface ChartValues {
-  market_caps: number[]
-  prices: number[]
-  total_volumes: number[]
 }
 
 interface ButtonsProps {
@@ -30,9 +25,9 @@ const Calendar: ButtonsProps[] = [
 ]
 
 const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
-  const [date, setDate] = useState<ChartValues>()
+  const [date, setDate] = useState<number[]>()
   const [days, setDays] = useState<ButtonsProps>({ label: '1D', value: '1' })
-  const { atualCurrency } = useCurrency()
+
   const { theme } = useTheme()
   const color = theme === 'light' ? '#fff' : '#202230'
 
@@ -40,13 +35,13 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
     ;(async () => {
       const payload = await getHistory({
         id: idCrypto,
-        currency: atualCurrency,
+        currency: currency,
         days: days.value,
       })
 
-      setDate(payload)
+      setDate(payload.prices)
     })()
-  }, [days, atualCurrency, idCrypto])
+  }, [days, currency, idCrypto])
 
   return (
     <>
@@ -76,7 +71,7 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
               type='area'
               height={350}
               width='100%'
-              series={[{ name: idCrypto, data: date.prices }]}
+              series={[{ name: idCrypto, data: date }]}
               options={{
                 stroke: { curve: 'smooth', width: 2 },
                 dataLabels: {
@@ -103,6 +98,15 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
                   toolbar: {
                     show: false,
                   },
+                  animations: {
+                    enabled: true,
+                    easing: 'easeinout',
+                    speed: 800,
+                    animateGradually: {
+                      enabled: true,
+                      delay: 150,
+                    },
+                  },
                 },
 
                 tooltip: {
@@ -111,8 +115,7 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
                     format: 'dd/MM/yy HH:mm',
                   },
                   y: {
-                    formatter: e =>
-                      new Intl.NumberFormat(atualCurrency).format(e),
+                    formatter: e => new Intl.NumberFormat(currency).format(e),
                   },
                 },
                 xaxis: {
@@ -121,8 +124,7 @@ const Chart: FC<ChartProps> = ({ idCrypto, currency, name }) => {
                 yaxis: {
                   labels: {
                     style: { fontWeight: 'bold' },
-                    formatter: e =>
-                      new Intl.NumberFormat(atualCurrency).format(e),
+                    formatter: e => new Intl.NumberFormat(currency).format(e),
                   },
                 },
               }}

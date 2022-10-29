@@ -1,4 +1,5 @@
 import { createContext, FC, useContext, useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
 
 interface ICurrencyContext {
   atualCurrency: string
@@ -11,8 +12,20 @@ export const CurrencyProvider: FC = ({ children }) => {
   const [atualCurrency, setAtualCurrency] = useState('usd')
 
   const SetValue = (value: string) => {
+    Cookies.set('currency-cookie', value)
     setAtualCurrency(value)
   }
+
+  useEffect(() => {
+    const currency = Cookies.get('currency-cookie')
+
+    if (currency) {
+      setAtualCurrency(currency)
+      return
+    }
+
+    Cookies.set('currency-cookie', 'usd')
+  }, [])
 
   return (
     <CurrencyContext.Provider

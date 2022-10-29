@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useCurrency } from '../context/Currency'
+import { useCurrency } from '../hooks/Currency'
 import { formatNumber } from '../utils/currency'
 import { CoinInfosProps } from './CoinInfos'
 import Percentage from './Percentage'

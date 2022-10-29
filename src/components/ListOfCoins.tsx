@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { IMarket } from '../interfaces/IMarket'
+import { IMarket } from '../../interfaces/IMarket'
 import ItemOfList, { ItemOfListSkeleton } from './ItemsOfList'
 
 interface ListOfCoinsProps {

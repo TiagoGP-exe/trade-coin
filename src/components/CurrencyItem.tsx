@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
-import { useCurrency } from '../context/Currency'
+import { useCurrency } from '../hooks/Currency'
 
 const currency = ['usd', 'eur', 'brl']
 

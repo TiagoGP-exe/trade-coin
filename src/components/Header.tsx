@@ -12,9 +12,7 @@ const Header: FC = () => {
     <div className='bg-white dark:bg-[#202230] p-4 rounded-b-xl flex flex-col sm:flex-row gap-3 items-center w-full justify-center relative'>
       <div className='w-full flex max-w-screen-xl gap-y-2 flex-col sm:flex-row items-center justify-between'>
         <Link href='/'>
-          <a>
-            <Logo />
-          </a>
+          <Logo />
         </Link>
         <div className='middleContent gap-7'>
           <ItemsHeaders title='Cryptocurrencies' />

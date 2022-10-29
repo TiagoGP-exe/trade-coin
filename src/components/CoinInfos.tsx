@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai'
-import { useCurrency } from '../context/Currency'
-import { IMarket } from '../interfaces/IMarket'
+import { useCurrency } from '../hooks/Currency'
+import { IMarket } from '../../interfaces/IMarket'
 import { formatNumber, manualFormarNumber } from '../utils/currency'
 
 export interface CoinInfosProps {
