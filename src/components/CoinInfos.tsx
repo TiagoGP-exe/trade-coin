@@ -3,6 +3,7 @@ import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai'
 import { useCurrency } from '../hooks/Currency'
 import { IMarket } from '../../interfaces/IMarket'
 import { formatNumber, manualFormarNumber } from '../utils/currency'
+import Image from 'next/image'
 
 export interface CoinInfosProps {
   infos: IMarket
@@ -14,11 +15,7 @@ const CoinInfos: FC<CoinInfosProps> = ({ infos }) => {
   return (
     <div className='flex  items-stretch  gap-2 justify-between pb-4 '>
       <div className='flex items-center gap-3 '>
-        <img
-          src={infos?.image}
-          alt={infos?.name}
-          className='rounded-lg w-14 h-14 '
-        />
+        <Image src={infos?.image} alt={infos?.name} width={64} height={64} />
         <div>
           <h1 className='font-bold text-2xl text-slate-800 dark:text-slate-200'>
             {infos?.name}

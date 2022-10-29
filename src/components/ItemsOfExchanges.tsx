@@ -1,5 +1,6 @@
+import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { useCurrency } from '../hooks/Currency'
 import { formatNumber } from '../utils/currency'
 import { IExchanges } from './ListOfExchanges'
@@ -22,10 +23,12 @@ const ItemsOfExChanges: FC<ItemOfExcangesProps> = ({ exchange, id }) => {
     >
       <div className='flex flex-row gap-3 flex-1 items-center justify-start '>
         <p className='text-sm text-gray-400 font-semibold'>#{++id}</p>
-        <img
+        <Image
           src={exchange.image}
           alt={exchange.name}
-          className={`h-6 w-6 hover:scale-125 duration-200 ease-in-out rounded-lg`}
+          className={`hover:scale-125 duration-200 ease-in-out rounded-lg`}
+          width={32}
+          height={32}
         />
         <h2 className='font-bold '>{exchange.name}</h2>
       </div>
@@ -42,4 +45,4 @@ const ItemsOfExChanges: FC<ItemOfExcangesProps> = ({ exchange, id }) => {
   )
 }
 
-export default ItemsOfExChanges
+export default memo(ItemsOfExChanges)

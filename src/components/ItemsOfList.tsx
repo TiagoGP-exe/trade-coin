@@ -22,13 +22,13 @@ const ItemOfList: FC<ItemOfListProps> = ({ coin, id }) => {
     >
       <div className='flex flex-row gap-3 flex-1 items-center justify-start '>
         <p className='text-sm text-gray-400'>{++id}</p>
-        <div className='hover:scale-125 duration-200 ease-in-out '>
+        <div className='hover:scale-125 duration-200 ease-in-out h-6 w-6'>
           <Image
             src={coin.image}
             alt={coin.name}
             width={32}
             height={32}
-            className='h-6 w-6 rounded-md'
+            className='rounded-md'
           />
         </div>
 

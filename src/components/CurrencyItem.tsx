@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 import { useCurrency } from '../hooks/Currency'
@@ -25,9 +26,11 @@ const CurrencyItem = () => {
         className='relative w-full bg-white dark:bg-[#2C2F3F] border duration-150 border-gray-300 rounded-md shadow-sm pl-3 pr-10 xl:pr-6 cursor-pointer ease-out py-2 text-left focus:outline-none focus:ring-1 focus:ring-offset-sky-300 sm:text-sm'
       >
         <span className='flex items-center '>
-          <img
+          <Image
             src={`/${atualCurrency?.toUpperCase()}.png`}
-            className='flex-shrink-0 h-6 w-6'
+            alt='currency'
+            width={24}
+            height={24}
           />
           <span className='ml-2 pr-2'>{atualCurrency?.toUpperCase()}</span>
         </span>
@@ -54,10 +57,11 @@ const CurrencyItem = () => {
             role='option'
             onClick={() => setAtualCurrency(item)}
           >
-            <img
+            <Image
               src={`/${item?.toUpperCase()}.png`}
               alt={item}
-              className='flex-shrink-0 h-6 w-6 rounded-full'
+              width={24}
+              height={24}
             />
             <span className='font-normal ml-3 block'>
               {item?.toUpperCase()}
