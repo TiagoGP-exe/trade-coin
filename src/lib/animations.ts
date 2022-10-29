@@ -131,9 +131,9 @@ const rotateZ = {
 }
 
 export const animations = [
+  fadeBack,
   slideUp,
   slideRight,
-  fadeBack,
   rotateX,
   rotateY,
   rotateZ,
