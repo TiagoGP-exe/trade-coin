@@ -15,7 +15,7 @@
 <br>
 
 <div style="display: flex;" align="center" >
-  <img style="border-radius: 8px; max-height: 400px; max-width: 700px;" src="https://cdn.discordapp.com/attachments/437386668756959245/963624978408939560/tradecoin-1.gif"  width="100%" height="100%" />
+  <img style="border-radius: 8px; max-height: 400px; max-width: 700px;" src="https://cdn.discordapp.com/attachments/494671180377227264/1036299708307603638/ezgif.com-gif-maker.gif"  width="100%" height="100%" />
 </div>
 
 ## 💻 Descrição
