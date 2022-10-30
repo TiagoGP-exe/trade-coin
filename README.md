@@ -12,13 +12,6 @@
   <img style="border-radius: 8px;" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
 </div>
 
-<p align="center">
-  <a href="#-descrição">Descrição</a> •
-  <a href="#-tecnologias">Tecnologias</a> •
-  <a href="#-layout">Layout</a> •
-  <a href="#-Como-executar">Como executar</a> •
-</p>
-
 <br>
 
 <div style="display: flex;" align="center" >
