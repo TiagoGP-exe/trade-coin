@@ -29,7 +29,6 @@ Também é possível ver o histórico de preço de uma moeda, e ver o preço atu
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [**Next.js**](https://nextjs.org/)
-- [**React.js**](https://reactjs.org)
 - [**TypeScript**](https://www.typescriptlang.org/)
 - [**Tailwind CSS**](https://tailwindcss.com/)
 
